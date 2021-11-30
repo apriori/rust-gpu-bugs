@@ -1,0 +1,172 @@
+; SPIR-V
+; Version: 1.5
+; Generator: Embark Studios Rust GPU Compiler Backend; 0
+; Bound: 121
+; Schema: 0
+               OpCapability Shader
+               OpCapability VulkanMemoryModel
+               OpMemoryModel Logical Vulkan
+               OpEntryPoint GLCompute %1 "two_matrices" %arg0 %arg1
+               OpEntryPoint GLCompute %4 "two_custom_structs" %arg0_0 %arg1_0
+               OpExecutionMode %1 LocalSize 64 1 1
+               OpExecutionMode %4 LocalSize 64 1 1
+          %7 = OpString "buggy-shader/src/lib.rs"
+               OpMemberName %spirv_std__glam__core__storage__Columns4_spirv_std__glam__XYZW_f32__ 0 "x_axis"
+               OpMemberName %spirv_std__glam__core__storage__Columns4_spirv_std__glam__XYZW_f32__ 1 "y_axis"
+               OpMemberName %spirv_std__glam__core__storage__Columns4_spirv_std__glam__XYZW_f32__ 2 "z_axis"
+               OpMemberName %spirv_std__glam__core__storage__Columns4_spirv_std__glam__XYZW_f32__ 3 "w_axis"
+               OpName %spirv_std__glam__core__storage__Columns4_spirv_std__glam__XYZW_f32__ "spirv_std::glam::core::storage::Columns4<spirv_std::glam::XYZW<f32>>"
+               OpMemberName %spirv_std__glam__Mat4 0 "0"
+               OpName %spirv_std__glam__Mat4 "spirv_std::glam::Mat4"
+               OpName %arg0 "arg0"
+               OpName %arg1 "arg1"
+               OpName %CustomStruct "CustomStruct"
+               OpName %arg0_0 "arg0"
+               OpName %arg1_0 "arg1"
+               OpMemberName %spirv_std__glam__core__storage__Columns4_spirv_std__glam__XYZW_f32__ 0 "x_axis"
+               OpMemberName %spirv_std__glam__core__storage__Columns4_spirv_std__glam__XYZW_f32__ 1 "y_axis"
+               OpMemberName %spirv_std__glam__core__storage__Columns4_spirv_std__glam__XYZW_f32__ 2 "z_axis"
+               OpMemberName %spirv_std__glam__core__storage__Columns4_spirv_std__glam__XYZW_f32__ 3 "w_axis"
+               OpMemberName %spirv_std__glam__Mat4 0 "0"
+               OpMemberDecorate %spirv_std__glam__core__storage__Columns4_spirv_std__glam__XYZW_f32__ 0 Offset 0
+               OpMemberDecorate %spirv_std__glam__core__storage__Columns4_spirv_std__glam__XYZW_f32__ 1 Offset 16
+               OpMemberDecorate %spirv_std__glam__core__storage__Columns4_spirv_std__glam__XYZW_f32__ 2 Offset 32
+               OpMemberDecorate %spirv_std__glam__core__storage__Columns4_spirv_std__glam__XYZW_f32__ 3 Offset 48
+               OpMemberDecorate %spirv_std__glam__Mat4 0 Offset 0
+               OpDecorate %_runtimearr_spirv_std__glam__Mat4 ArrayStride 64
+               OpDecorate %_struct_12 Block
+               OpMemberDecorate %_struct_12 0 Offset 0
+               OpDecorate %arg0 DescriptorSet 0
+               OpDecorate %arg0 Binding 0
+               OpDecorate %arg1 DescriptorSet 0
+               OpDecorate %arg1 Binding 1
+               OpMemberDecorate %CustomStruct 0 Offset 0
+               OpMemberDecorate %CustomStruct 1 Offset 4
+               OpDecorate %_runtimearr_CustomStruct ArrayStride 8
+               OpDecorate %_struct_14 Block
+               OpMemberDecorate %_struct_14 0 Offset 0
+               OpDecorate %arg0_0 DescriptorSet 0
+               OpDecorate %arg0_0 Binding 0
+               OpDecorate %arg1_0 DescriptorSet 0
+               OpDecorate %arg1_0 Binding 1
+       %void = OpTypeVoid
+      %float = OpTypeFloat 32
+    %v4float = OpTypeVector %float 4
+%spirv_std__glam__core__storage__Columns4_spirv_std__glam__XYZW_f32__ = OpTypeStruct %v4float %v4float %v4float %v4float
+%spirv_std__glam__Mat4 = OpTypeStruct %spirv_std__glam__core__storage__Columns4_spirv_std__glam__XYZW_f32__
+%_runtimearr_spirv_std__glam__Mat4 = OpTypeRuntimeArray %spirv_std__glam__Mat4
+       %uint = OpTypeInt 32 0
+         %20 = OpTypeFunction %void
+ %_struct_12 = OpTypeStruct %_runtimearr_spirv_std__glam__Mat4
+%_ptr_StorageBuffer__struct_12 = OpTypePointer StorageBuffer %_struct_12
+     %uint_0 = OpConstant %uint 0
+       %arg0 = OpVariable %_ptr_StorageBuffer__struct_12 StorageBuffer
+       %arg1 = OpVariable %_ptr_StorageBuffer__struct_12 StorageBuffer
+%CustomStruct = OpTypeStruct %float %float
+%_runtimearr_CustomStruct = OpTypeRuntimeArray %CustomStruct
+ %_struct_14 = OpTypeStruct %_runtimearr_CustomStruct
+%_ptr_StorageBuffer__struct_14 = OpTypePointer StorageBuffer %_struct_14
+     %arg0_0 = OpVariable %_ptr_StorageBuffer__struct_14 StorageBuffer
+     %arg1_0 = OpVariable %_ptr_StorageBuffer__struct_14 StorageBuffer
+%_ptr_StorageBuffer_spirv_std__glam__Mat4 = OpTypePointer StorageBuffer %spirv_std__glam__Mat4
+       %bool = OpTypeBool
+%_ptr_StorageBuffer_float = OpTypePointer StorageBuffer %float
+     %uint_1 = OpConstant %uint 1
+          %1 = OpFunction %void None %20
+         %31 = OpLabel
+               OpSelectionMerge %114 None
+               OpSwitch %uint_0 %115
+        %115 = OpLabel
+               OpLine %7 17 4
+         %33 = OpArrayLength %uint %arg0 0
+               OpLine %7 18 4
+         %35 = OpArrayLength %uint %arg1 0
+               OpLine %7 21 14
+         %36 = OpULessThan %bool %uint_0 %35
+               OpSelectionMerge %37 None
+               OpBranchConditional %36 %38 %39
+         %39 = OpLabel
+               OpBranch %114
+         %38 = OpLabel
+               OpLine %7 21 14
+         %40 = OpAccessChain %_ptr_StorageBuffer_spirv_std__glam__Mat4 %arg1 %uint_0 %uint_0
+         %41 = OpLoad %spirv_std__glam__Mat4 %40
+               OpLine %7 21 4
+         %42 = OpULessThan %bool %uint_0 %33
+               OpSelectionMerge %43 None
+               OpBranchConditional %42 %44 %45
+         %45 = OpLabel
+               OpBranch %114
+         %44 = OpLabel
+               OpLine %7 21 4
+         %46 = OpAccessChain %_ptr_StorageBuffer_spirv_std__glam__Mat4 %arg0 %uint_0 %uint_0
+               OpStore %46 %41
+               OpLine %7 22 1
+               OpBranch %114
+         %43 = OpLabel
+               OpUnreachable
+         %37 = OpLabel
+               OpUnreachable
+        %114 = OpLabel
+               OpReturn
+               OpFunctionEnd
+          %4 = OpFunction %void None %20
+         %59 = OpLabel
+               OpSelectionMerge %119 None
+               OpSwitch %uint_0 %120
+        %120 = OpLabel
+               OpLine %7 34 4
+         %61 = OpArrayLength %uint %arg0_0 0
+               OpLine %7 35 4
+         %63 = OpArrayLength %uint %arg1_0 0
+               OpLine %7 38 22
+         %64 = OpULessThan %bool %uint_0 %63
+               OpSelectionMerge %65 None
+               OpBranchConditional %64 %66 %67
+         %67 = OpLabel
+               OpBranch %119
+         %66 = OpLabel
+               OpLine %7 38 22
+         %69 = OpAccessChain %_ptr_StorageBuffer_float %arg1_0 %uint_0 %uint_0 %uint_0
+         %70 = OpLoad %float %69
+               OpLine %7 38 4
+         %71 = OpULessThan %bool %uint_0 %61
+               OpSelectionMerge %72 None
+               OpBranchConditional %71 %73 %74
+         %74 = OpLabel
+               OpBranch %119
+         %73 = OpLabel
+               OpLine %7 38 4
+         %76 = OpAccessChain %_ptr_StorageBuffer_float %arg0_0 %uint_0 %uint_0 %uint_0
+               OpStore %76 %70
+               OpLine %7 39 22
+               OpSelectionMerge %78 None
+               OpBranchConditional %64 %79 %80
+         %80 = OpLabel
+               OpBranch %119
+         %79 = OpLabel
+               OpLine %7 39 22
+         %82 = OpAccessChain %_ptr_StorageBuffer_float %arg1_0 %uint_0 %uint_0 %uint_1
+         %83 = OpLoad %float %82
+               OpLine %7 39 4
+               OpSelectionMerge %85 None
+               OpBranchConditional %71 %86 %87
+         %87 = OpLabel
+               OpBranch %119
+         %86 = OpLabel
+               OpLine %7 39 4
+         %89 = OpAccessChain %_ptr_StorageBuffer_float %arg0_0 %uint_0 %uint_0 %uint_1
+               OpStore %89 %83
+               OpLine %7 40 1
+               OpBranch %119
+         %85 = OpLabel
+               OpUnreachable
+         %78 = OpLabel
+               OpUnreachable
+         %72 = OpLabel
+               OpUnreachable
+         %65 = OpLabel
+               OpUnreachable
+        %119 = OpLabel
+               OpReturn
+               OpFunctionEnd

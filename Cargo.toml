@@ -1,0 +1,22 @@
+[workspace]
+members = [
+	"buggy-shader",
+	"buggy-shader-builder",
+]
+resolver = "2"
+
+# Enable incremental by default in release mode.
+[profile.release]
+opt-level = 3
+incremental = true
+# HACK(eddyb) this is the default but without explicitly specifying it, Cargo
+# will treat the identical settings in `[profile.release.build-override]` below
+# as different sets of `rustc` flags and will not reuse artifacts between them.
+codegen-units = 16
+
+# Compile build-dependencies in release mode with the same settings
+# as regular dependencies (including the incremental enabled above).
+[profile.release.build-override]
+opt-level = 3
+incremental = true
+codegen-units = 16

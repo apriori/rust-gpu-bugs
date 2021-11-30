@@ -1,0 +1,8 @@
+[package]
+name = "buggy-shader-builder"
+version = "0.1.0"
+edition = "2021"
+
+[build-dependencies]
+# HEAD as of 30.11.2021 08:12 PM GMT+1
+spirv-builder = { git = "https://github.com/EmbarkStudios/rust-gpu", features=["watch"],  rev = "2e4de94a6651baabe410252152eec05e948e9627"}

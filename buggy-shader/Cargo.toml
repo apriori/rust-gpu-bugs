@@ -1,0 +1,13 @@
+[package]
+name = "buggy-shader"
+version = "0.1.0"
+edition = "2021"
+
+
+[lib]
+crate-type = ["dylib"]
+
+[dependencies]
+cfg-if = "1.0.0"
+# HEAD as of 30.11.2021 08:12 PM GMT+1
+spirv-std = { git = "https://github.com/EmbarkStudios/rust-gpu", features = ["glam"],  rev = "2e4de94a6651baabe410252152eec05e948e9627" }
